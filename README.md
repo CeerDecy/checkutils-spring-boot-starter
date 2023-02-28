@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/SpringBoot-v3.0.3-green)![](https://img.shields.io/badge/JDK-17-red) 
 
-一个用于在SpringBoot项目中判断参数对象中属性是否为空的工具箱，极大简化你的代码！
+一个用于在SpringBoot项目中判断参数对象中属性是否为空的工具箱，简化你的代码！
 
 ## 一、安装与配置
 
@@ -25,7 +25,13 @@ INFO 77084 --- [main] c.c.checkutils.service.CheckAopService   : Check Service S
 
 ## 二、如何使用
 
-### 1. @CheckBean注解
+### 1. 直接使用
+
+CheckUtils类提供多种静态方法用以判断，既可以返回布尔类型，也可选择直接抛出异常。
+
+### 2. 注解
+
+#### @CheckBean
 
 方式一：将test方法中userBean的参数名称给到CheckBean注解的param参数，会将判断userBean这个对象中所有属性的空值与否，但凡有一个属性值为空，则抛出异常。
 
@@ -46,8 +52,6 @@ public ModelAndView test(@RequestBody UserBean userBean){
 	...
 }
 ```
-
-### 2.其他待完善
 
 ## 三、合作？
 
