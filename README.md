@@ -12,15 +12,15 @@
 
 ```xml
 <dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-aop</artifactId>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-aop</artifactId>
 </dependency>
 ```
 
 SpringBoot出现以下日志信息则说明成功启动
 
 ```bash
-INFO 77084 --- [           main] c.c.checkutils.service.CheckAopService   : Check Service Starting
+INFO 77084 --- [main] c.c.checkutils.service.CheckAopService   : Check Service Starting
 ```
 
 ## 二、如何使用
@@ -33,7 +33,7 @@ INFO 77084 --- [           main] c.c.checkutils.service.CheckAopService   : Chec
 @GetMapping("/t1")
 @CheckBean(param = "userBean")
 public ModelAndView test(@RequestBody UserBean userBean){
-		...
+	...
 }
 ```
 
@@ -43,7 +43,7 @@ public ModelAndView test(@RequestBody UserBean userBean){
 @GetMapping("/t1")
 @CheckBean(param = "userBean",fields = {"username","email"})
 public ModelAndView test(@RequestBody UserBean userBean){
-		...
+	...
 }
 ```
 
