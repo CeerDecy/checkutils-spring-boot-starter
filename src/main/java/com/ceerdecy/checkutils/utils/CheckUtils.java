@@ -55,12 +55,12 @@ public class CheckUtils {
     }
 
     /**
-     * Determines whether all properties in this object are empty,throw an exception if there is a null value
-     * 判断此对象中的所有属性是否为空，如果存在空值，则抛出异常
+     * Judge whether the attribute with the attribute name in fields in this object is null. If there is a null value, throw an exception
+     * 判断此对象中属性名在fields中的属性是否为空，如果存在空值，则抛出异常
      *
-     * @param o
-     * @param fields
-     * @return
+     * @param o         The object that needs to be judged
+     * @param fields    The names of the attribute to be determined
+     * @return          Property values are not empty and return true
      */
     public static boolean checkNull(Object o, String... fields) {
         if (o == null) throw new CheckParamIsNull("this method param <Object> can't be null ");
@@ -82,6 +82,14 @@ public class CheckUtils {
         return true;
     }
 
+    /**
+     * Judge whether the attribute with the attribute name in fields in this object is null. If there is a null value, return false
+     * 判断此对象中属性名在fields中的属性是否为空，如果存在空值，返回false
+     *
+     * @param o         The object that needs to be judged
+     * @param fields    The names of the attribute to be determined
+     * @return          Property values are not empty and return true, otherwise return false
+     */
     public static boolean checkNullWithout(Object o, String... fields) {
         if (o == null) return false;
         Class<?> c = o.getClass();
@@ -102,14 +110,28 @@ public class CheckUtils {
         return true;
     }
 
-    public static boolean checkNullOfValue(Object... fields) {
-        for (Object o : fields) {
+    /**
+     * Directly pass in the parameter and judge whether it is null (throw exception)
+     * 直接将参数传递进来，并判断其是否为空值
+     *
+     * @param params    Parameters to be judged
+     * @return          Parameters values are not empty and return true, otherwise throw an exception
+     */
+    public static boolean checkNullOfValue(Object... params) {
+        for (Object o : params) {
             if (o == null || o.equals(""))throw new ValueNullException("There is a value of null");
         }
         return true;
     }
-    public static boolean checkNullOfValueWithout(Object... fields) {
-        for (Object o : fields) {
+    /**
+     * Directly pass in the parameter and judge whether it is null
+     * 直接将参数传递进来，并判断其是否为空值
+     *
+     * @param params    Parameters to be judged
+     * @return          Parameters values are not empty and return true, otherwise return false
+     */
+    public static boolean checkNullOfValueWithout(Object... params) {
+        for (Object o : params) {
             if (o == null || o.equals(""))return false;
         }
         return true;
