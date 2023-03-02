@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.ceerdecy</groupId>
     <artifactId>checkutils-spring-boot-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>checkutils-spring-boot-starter</name>
     <description>checkutils-spring-boot-starter</description>
     <properties>
