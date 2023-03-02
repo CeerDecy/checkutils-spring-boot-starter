@@ -24,7 +24,7 @@ public class CheckUtils {
         for (Field f : declaredFields) {
             f.setAccessible(true);
             try {
-                if (f.get(o) == null || f.get(o).equals("")) throw new ValueNullException("["+c+"."+f.getName()+"] this value can't be null");
+                if (f.get(o) == null || f.get(o).equals("")) throw new ValueNullException(" "+c+"'s "+f.getName()+" this value can't be null");
             } catch (IllegalAccessException e) {
                 throw new RuntimeException("IllegalAccessException");
             }
@@ -74,7 +74,7 @@ public class CheckUtils {
             }
             f.setAccessible(true);
             try {
-                if (f.get(o) == null || f.get(o).equals("")) throw new ValueNullException("["+c+"."+f.getName()+"] this value can't be null");
+                if (f.get(o) == null || f.get(o).equals("")) throw new ValueNullException(" "+c+"'s "+f.getName()+" this value can't be null");
             } catch (IllegalAccessException e) {
                 throw new RuntimeException("IllegalAccessException");
             }
@@ -134,6 +134,11 @@ public class CheckUtils {
         for (Object o : params) {
             if (o == null || o.equals(""))return false;
         }
+        return true;
+    }
+
+    public static boolean checkValue(Object o,String[] params,String[] value){
+        if (params.length!=value.length)throw new ValueNullException(o.getClass(),params[0]);
         return true;
     }
 }
