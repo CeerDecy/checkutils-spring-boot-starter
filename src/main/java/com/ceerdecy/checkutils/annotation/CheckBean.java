@@ -13,5 +13,4 @@ public @interface CheckBean {
     String[] value() default "";
     String bean() default "";
     String[] fields() default "";
-
 }

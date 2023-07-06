@@ -1,7 +1,8 @@
 package com.ceerdecy.checkutils.config;
 
 import com.ceerdecy.checkutils.properties.CheckUtilsProperties;
-import com.ceerdecy.checkutils.service.CheckAopService;
+import com.ceerdecy.checkutils.service.CheckBeansService;
+import com.ceerdecy.checkutils.service.CheckMapService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -20,8 +21,13 @@ public class CheckUtilsConfig {
     }
     @Bean
     @ConditionalOnMissingBean
-    public CheckAopService checkAopService(){
-        return new CheckAopService();
+    public CheckBeansService checkBeansService(){
+        return new CheckBeansService();
+    }
+    @Bean
+    @ConditionalOnMissingBean
+    public CheckMapService checkMapService(){
+        return new CheckMapService();
     }
 
 }

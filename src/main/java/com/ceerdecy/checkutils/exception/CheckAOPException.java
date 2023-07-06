@@ -10,4 +10,7 @@ public class CheckAOPException extends RuntimeException{
     public CheckAOPException(String message) {
         super("["+CHECK_AOP_EXCEPTION+"]-"+message);
     }
+    public CheckAOPException(Exception e,String name) {
+        super("["+CHECK_AOP_EXCEPTION+"]-"+e.getMessage() + " in param [" + name + "]");
+    }
 }

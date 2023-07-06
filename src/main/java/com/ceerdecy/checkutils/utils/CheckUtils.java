@@ -4,6 +4,7 @@ import com.ceerdecy.checkutils.exception.CheckParamIsNull;
 import com.ceerdecy.checkutils.exception.ValueNullException;
 
 import java.lang.reflect.Field;
+import java.util.Map;
 
 /**
  * @author CeerDecy
@@ -136,7 +137,16 @@ public class CheckUtils {
         }
         return true;
     }
-
+    public static boolean checkMap(Object map,String[] keys){
+        Map<?,?> toMap = (Map<?, ?>) map;
+        if (keys[0].equals("")){
+            toMap.forEach((key, value) -> {
+                if (value==null)throw new ValueNullException(map.getClass(),key.toString());
+                System.out.println(key+" "+value);
+            });
+        }
+        return true;
+    }
     public static boolean checkValue(Object o,String[] params,String[] value){
         if (params.length!=value.length)throw new ValueNullException(o.getClass(),params[0]);
         return true;
